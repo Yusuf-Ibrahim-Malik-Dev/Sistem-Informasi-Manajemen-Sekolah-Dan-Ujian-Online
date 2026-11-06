@@ -1,0 +1,35 @@
+### Attack Surface Assessment:
+- **Possible Reverse Proxy Configuration:** The absence of resolved hosts suggests the target might be behind a reverse proxy. Investigate logs for proxy misconfiguration, such as missing headers (e.g., X-Forwarded) or incorrect proxy lists.
+- **Internal Server Configuration:** Consider the possibility of the target being a monolithic application or a staging area with misconfigured internal services. Look for unusual request patterns or misconfigured proxies.
+
+### Priority Hunt Plan:
+1. **Proxy Misconfiguration Check:**
+   - **Action:** Examine logs for any proxy-related issues.
+   - **Why:** Potential issues like missing headers or incorrect proxies could indicate vulnerabilities.
+   - **Tools/Payloads:** Use log analysis tools to inspect proxy configurations.
+
+2. **Common Misconfigurations:**
+   - **Action:** Look for unusual request patterns or headers that might indicate misconfiguration.
+   - **Why:** Such patterns could hint at misconfigured servers or internal misconfigurations.
+   - **Tools/Payloads:** Use network monitoring tools to detect unusual traffic patterns.
+
+3. **Security Headers Verification:**
+   - **Action:** Check for the presence of security headers like X-Frame-Options or X-Content-Type-Options.
+   - **Why:** Missing or incorrectly set headers could expose the target to various attacks.
+   - **Tools/Payloads:** Use tools like Wireshark to inspect headers in requests.
+
+### Red Flags:
+- **Proxy Indicators:** Look for evidence of a reverse proxy in logs or error messages.
+- **Misconfigured Services:** Unusual request patterns or headers could indicate misconfigured services.
+
+### Kill List:
+- Avoid investigating endpoints or paths not listed in the data, as there are none available for analysis.
+
+### Time Allocation:
+- **4 Hours:**
+  - 1 hour: Investigate logs for proxy misconfiguration.
+  - 1 hour: Analyze request patterns and headers for misconfiguration signs.
+  - 1 hour: Verify security headers and check for unusual request behaviors.
+  - 1 hour: Review logs for any anomalies indicative of misconfiguration.
+
+This approach focuses on common misconfigurations and potential attack vectors, leveraging available data to identify areas of interest efficiently.
